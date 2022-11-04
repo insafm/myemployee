@@ -1,4 +1,4 @@
-![screenshot](https://github.com/insafm/myemployee-django/blob/main/SCREENSHOT.png?raw=true)
+![screenshot](https://github.com/insafm/myemployee/blob/main/SCREENSHOT.png?raw=true)
 
 WARNING: The env folder and its contents are all of contains confidential information. env files are used to load environment variables from an env file into the running process.
 
