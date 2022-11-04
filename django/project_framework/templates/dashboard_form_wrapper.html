@@ -1,0 +1,66 @@
+{% extends "dashboard_base.html" %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block dashboard_content %}
+
+{{form_media.css}}
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                
+                {% if form.errors %}
+                {% for field in form %}
+                {% for error in field.errors %}
+                <div class="alert alert-danger alert-dismissible fade in">
+                    <strong>{{ field.label }}</strong>: {{ error }}
+                </div>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+                
+                <form method="post" {% if files %} enctype="multipart/form-data"{% endif %} {% if form_action %} action='{{form_action}}' {% endif %}>
+                    {% csrf_token %}
+
+                    <div class="row">
+                    {% for field in form %}
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                {{ field|as_crispy_field }}
+                                {% if field.help_text %}
+                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-brand btn-lg">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block stylesheet %}
+{% if form.media.css %}
+    {{form.media.css}}
+{% endif %}
+{% endblock %}
+
+<!-- Load Js -->
+{% block javascript %}
+{% if form.media.js %}
+    {{form.media.js}}
+{% endif %}
+{% endblock %}

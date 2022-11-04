@@ -1,0 +1,66 @@
+{% extends "dashboard_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block dashboard_content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <div class="pull-right">
+                            <a class="btn btn-warning" title="Edit" href="{% url 'employee:edit_employee' instance.uuid %}"><i class="fa fa-edit"></i> Edit</a>
+                            <a class="btn btn-danger" title="Delete" href="{% url 'employee:delete_employee' instance.uuid %}"><i class="fa fa-trash"></i> Delete</a>
+                        </div>
+                        <tr>
+                            <th>Employee: {{instance.first_name}} {{instance.last_name}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th width="20%">First Name:</th>
+                            <td>{{instance.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Last Name</th>
+                            <td>{{instance.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Code</th>
+                            <td>{{instance.code}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Department</th>
+                            <td>{{instance.department.name}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Created</th>
+                            <td>{{instance.created}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Gender</th>
+                            <td>{{instance.gender}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Phone Number</th>
+                            <td>{{instance.phone_number}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Salary</th>
+                            <td>{{instance.employee_salary.amount}}</td>
+                        </tr>
+                        <tr>
+                            <th width="20%">Address</th>
+                            <td>{{instance.address}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

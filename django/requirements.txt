@@ -1,0 +1,9 @@
+Django>=3.0,<4.0
+psycopg2>=2.8
+django-environ
+gunicorn
+django-debug-toolbar
+django-allauth
+django-phonenumber-field[phonenumbers]
+django-tables2
+django-crispy-forms

@@ -1,0 +1,20 @@
+{% extends "account/account_base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block inner_content %}
+
+{% if process == "connect" %}
+  <h4 class="pt-2 pb-2">{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h4>
+  <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+{% else %}
+  <h4 class="pt-2 pb-2">{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h4>
+  <p>{% blocktrans with provider.name as provider %}You are about to sign in using a third party account from {{ provider }}.{% endblocktrans %}</p>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-lg btn-block btn-primary" type="submit">{% trans "Continue" %}</button>
+</form>
+{% endblock %}

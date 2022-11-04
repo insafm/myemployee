@@ -1,0 +1,6 @@
+{% extends "dashboard_base.html" %}
+
+{% block dashboard_content %}
+<p><strong>Joined Date:</strong> {{ request.user.date_joined }}</p>
+<p><strong>Last Login:</strong> {{ request.user.last_login }}</p>
+{% endblock %}

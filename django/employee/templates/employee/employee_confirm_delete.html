@@ -1,0 +1,22 @@
+{% extends "dashboard_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block dashboard_content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+				<form method="post">
+                    {% csrf_token %}
+                    <p>Are you sure you want to delete "{{ object }}"?</p>
+                    {{ form }}
+                    <input type="submit" class="btn btn-danger btn-lg" value="Confirm">
+                </form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

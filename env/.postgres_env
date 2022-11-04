@@ -1,0 +1,3 @@
+POSTGRES_DB=MyEmployeeDjango
+POSTGRES_USER=MyEmployeeDjangoUser
+POSTGRES_PASSWORD=MyEmployeeDjangoPassword

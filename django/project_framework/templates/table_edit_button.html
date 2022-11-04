@@ -1,0 +1,1 @@
+<a class="btn btn-warning btn-sm" title={{ value.label }} href="{% if value.url %} {{ value.url }} {% else %} {% url value.url_reverse value.key %} {% endif %}"><i class="fa fa-edit"></i></a>
